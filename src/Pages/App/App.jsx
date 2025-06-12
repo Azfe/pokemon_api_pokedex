@@ -1,3 +1,47 @@
+import { useRoutes, BrowserRouter } from 'react-router-dom'
+/*import { ShoppingCartProvider } from '../../Context'*/
+import Home from '../Home'
+/*
+import Navbar from '../../Components/Navbar'
+import CheckoutSideMenu from '../../Components/CheckoutSideMenu'*/
+import PokemonSearchApp from '../../Components/PokemonSearchApp'
+import './App.css'
+
+const AppRoutes = () => {
+
+  const routes = useRoutes([
+    { path: '/', element: <Home /> },
+    { path: '/clothes', element: <Home /> },
+    /*{ path: '/electronics', element: <Home /> },
+    { path: '/furnitures', element: <Home /> },*/
+    { path: '/pokemon-card', element: <PokemonCard /> },
+    { path: '/my-order', element: <MyOrder /> },
+    /*{ path: '/my-orders', element: <MyOrders /> },
+    { path: '/my-orders/last', element: <MyOrder /> },
+    { path: '/my-orders/:id', element: <MyOrder /> },*/
+    /*{ path: '/signin', element: <SignIn /> },*/
+    /*{ path: '/*', element: <NotFound /> }*/
+  ])
+
+  return routes
+}
+
+const App = () => {
+
+  return (
+    <ShoppingCartProvider>
+      <BrowserRouter>
+        <AppRoutes />
+        <Navbar />
+        <CheckoutSideMenu />
+      </BrowserRouter>
+    </ShoppingCartProvider>
+  )
+}
+
+export default App
+
+/*
 import { useState } from 'react'
 import reactLogo from './../../assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -16,9 +60,10 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>      
+      <h1>Vite + React</h1>   
     </>
   )
 }
 
 export default App
+*/
