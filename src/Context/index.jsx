@@ -13,15 +13,15 @@ export const PokedexProvider = ({ children }) => {
       try {
         const response = await fetch(
           "https://pokeapi.co/api/v2/pokemon/"
-        );
-        //https://fakestoreapi.com/products
+        );        
 
+        // Verificar si la respuesta es exitosa
         if (!response.ok) {
           throw new Error("Error en la solicitud");
         }
 
         const jsonData = await response.json();
-        setProducts(jsonData);
+        setPokemon(jsonData);
       } catch (err) {
         setError(err.message);
         console.error("Error fetching pokemon:", err);
@@ -33,13 +33,11 @@ export const PokedexProvider = ({ children }) => {
     fetchData();
   }, []); // El array vacío significa que se ejecuta solo al montar el componente
 
-  
-
   return (
     <PokedexContext.Provider
       value={{
         pokemon,
-        setPokemon        
+        setPokemon
       }}
     >
       {children}
