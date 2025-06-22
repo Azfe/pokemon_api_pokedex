@@ -8,6 +8,8 @@ export const PokedexProvider = ({ children }) => {
   // Pokemon data state
   const [pokemon, setPokemon] = useState(null);
 
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       try {

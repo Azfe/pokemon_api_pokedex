@@ -1,50 +1,33 @@
-import { useContext } from "react"
-/*import Layout from "../../Components/Layout"*/
-import PokemonSearchApp from "../../Components/PokemonSearchApp"
+import { useState } from "react";
+import SearchBar from "../../Components/SearchBar";
+import PokemonCard from "../../Components/PokemonCard";
+import { fetchPokemonByNameOrId } from "../../services/API/pokemonApi";
 
-function Home() {
-  /*const context = useContext(ShoppingCartContext);*/
+export default function Home() {
+  const [pokemon, setPokemon] = useState(null);
+  const [error, setError] = useState("");
 
-  /*
-  const renderView = () => {
-    if (context.filteredProducts?.length > 0) {
-      return (
-        context.filteredProducts?.map(product => (
-          <Card key={product.id} product={product} />
-        ))
-      )
-    } else {
-      return (
-        <div>We don't have anything :(</div>
-      )
+  const handleSearch = async (query) => {
+    try {
+      const data = await fetchPokemonByNameOrId(query);
+      setPokemon(data);
+      setError("");
+    } catch (e) {
+      setError("Pokémon no encontrado");
+      setPokemon(null);
     }
-  }
+  };
 
-  if (context.loading) return <div>Cargando...</div>;
-  if (context.error) return <div>Error: {error}</div>;
-  */
-
-  return (
-    <Layout>
+  return (        
+    <div className="p-4">
       <div className='flex items-center justify-center relative w-80 mb-6'>
         <h1 className='font-medium text-xl'>
-          Productos exclusivos de skate
+          Pokedex
         </h1>
       </div>
-      <input
-        type="text"
-        placeholder="Busca tu producto"
-        className="rounded-lg border border-gray-neutral w-80 p-4 mb-4 focus:outline-none"
-        onChange={(event) => context.setSearchByTitle(event.target.value)}
-      />
-      <div className="grid grid-cols-4 gap-4 w-full max-w-screen-lg mx-auto">
-        {
-          renderView()
-        }
-      </div>
-      <ProductDetails />
-    </Layout>
-  )
+      <SearchBar onSearch={handleSearch} />
+      {error && <p className="text-red-500">{error}</p>}
+      {pokemon && <PokemonCard data={pokemon} />}
+    </div>
+  );
 }
-
-export default Home
