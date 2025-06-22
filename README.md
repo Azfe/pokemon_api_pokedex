@@ -10,7 +10,7 @@ Development of a website that functions as a Pokedex where you can search for in
 
 ## Installation
 
-1. Clone the repository:
+1. Fork this repository and clone it locally:
 
 ```bash
 git clone https://github.com/Azfe/landingpage_aether_skateshop.git
