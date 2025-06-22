@@ -68,8 +68,7 @@ function App() {
 =======
         <AppRoutes />
         {/*
-        <SearchBar />
-        */
+        <SearchBar />        
   )
 }
 
