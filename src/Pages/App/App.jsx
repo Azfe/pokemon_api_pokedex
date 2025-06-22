@@ -10,8 +10,8 @@ import CheckoutSideMenu from '../../Components/CheckoutSideMenu'*/
 import PokemonSearchApp from '../../Components/PokemonSearchApp'
 import './App.css'
 
-const AppRoutes = () => {
 
+const AppRoutes = () => {
   const routes = useRoutes([
     { path: '/', element: <Home /> },
     // { path: '/clothes', element: <Home /> },
@@ -65,8 +65,12 @@ function App() {
       </div>
       <h1>Vite + React</h1>   
     </>
+=======
+        <AppRoutes />
+        {/*
+        <SearchBar />
+        */
   )
 }
 
-export default App
-*/
+export default App*/
