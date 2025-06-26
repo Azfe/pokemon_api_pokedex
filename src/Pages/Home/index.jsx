@@ -18,16 +18,17 @@ export default function Home() {
     }
   };
 
-  return (        
-    <div className="p-4">
-      <div className='flex items-center justify-center relative w-80 mb-6'>
-        <h1 className='font-medium text-xl'>
-          Pokedex
-        </h1>
+  return (
+    <div className='flex items-center justify-center relative bg-gray-dark w-full mb-6 py-8 gap-x-40'>
+      <div>
+        <h2 className="text-2xl font-bold mb-2 text-white">Nombre o número de Pokémon</h2>
+        <SearchBar onSearch={handleSearch} />
+        {error && <p className="text-red-500">{error}</p>}
+        {pokemon && <PokemonCard data={pokemon} />}
       </div>
-      <SearchBar onSearch={handleSearch} />
-      {error && <p className="text-red-500">{error}</p>}
-      {pokemon && <PokemonCard data={pokemon} />}
+      <div className="bg-secondary rounded-lg p-4 shadow-lg w-full max-w-md">
+        <p>Busca un Pokémon por su nombre o usando su número de la Pokédex Nacional.</p>
+      </div>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { PokedexProvider } from '../../Context'
 import Home from '../Home'
 import Navbar from '../../Components/Navbar'
 import Header from '../../Components/Header'
+import SearchSection from '../../Components/searchComponents/SearchSection'
 import PokemonCard from '../../Components/PokemonCard'
 
 /*
@@ -39,6 +40,7 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <Header />
+        <SearchSection />
         <AppRoutes />
         <PokemonCard />
       </BrowserRouter>

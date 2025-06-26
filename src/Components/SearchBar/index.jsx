@@ -17,7 +17,7 @@ export default function SearchBar({ onSearch }) {
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
-      <button type="submit" className="bg-blue-500 text-white p-2 rounded">
+      <button type="submit" className="bg-primary text-white p-2 rounded">
         Buscar
       </button>
     </form>
