@@ -2,6 +2,7 @@ import { useRoutes, BrowserRouter } from 'react-router-dom'
 import { PokedexProvider } from '../../Context'
 import Home from '../Home'
 import Navbar from '../../Components/Navbar'
+import Header from '../../Components/Header'
 import PokemonCard from '../../Components/PokemonCard'
 
 /*
@@ -37,6 +38,7 @@ const App = () => {
     <PokedexProvider>
       <BrowserRouter>
         <Navbar />
+        <Header />
         <AppRoutes />
         <PokemonCard />
       </BrowserRouter>
